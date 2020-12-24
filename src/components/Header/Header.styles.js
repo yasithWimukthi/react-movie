@@ -20,7 +20,7 @@ export const LogoImg = styled.img `
 
     width : 200px;
 
-    @media screen and (max-width : 500px){\
+    @media screen and (max-width : 500px){
     
         width : 150px;
     }
