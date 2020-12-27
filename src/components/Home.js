@@ -13,6 +13,7 @@ import {useMovieFetch} from '../hooks/useHomeFetch';
 import HeroImage from './HeroImage/HeroImage';
 import Grid from './Grid/Grid';
 import Thumb from './Thumb/Thumb';
+import Spinner from './Spinner/Spinner';
 
 const Home = () => {
 
@@ -41,7 +42,7 @@ const Home = () => {
                     />
                 ))}
             </Grid>
-            
+            <Spinner />
         </Fragment>
     )
 }
