@@ -14,10 +14,11 @@ import HeroImage from './HeroImage/HeroImage';
 import Grid from './Grid/Grid';
 import Thumb from './Thumb/Thumb';
 import Spinner from './Spinner/Spinner';
+import SearchBar from './SearchBar/SearchBar';
 
 const Home = () => {
 
-    const {state,loading,error} = useMovieFetch();
+    const {state,loading,error,setSearchTerm} = useMovieFetch();
 
     return (
         <Fragment>
@@ -29,6 +30,8 @@ const Home = () => {
                 text={state.results[0].overview}
             /> 
             : null}
+
+            <SearchBar setSearchTerm={setSearchTerm}/>
 
             <Grid header="Popular Movies">
                 {state.results.map(movie=>(
