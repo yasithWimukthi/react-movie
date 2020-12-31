@@ -36,7 +36,11 @@ export const useMovieFetch = ()=>{
     }
 
     //Initial render
-    useEffect(()=>fetchMovies(1),[]);
+    useEffect(()=>{
+        setState(initialState);
+        fetchMovies(1,searchTerm)
+    },[searchTerm]
+    );
 
-    return {state,loading,error,setSearchTerm};
+    return {state,loading,error,setSearchTerm,searchTerm};
 }
