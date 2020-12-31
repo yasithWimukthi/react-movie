@@ -15,10 +15,25 @@ import Grid from './Grid/Grid';
 import Thumb from './Thumb/Thumb';
 import Spinner from './Spinner/Spinner';
 import SearchBar from './SearchBar/SearchBar';
+import Button from './Button/Button';
 
 const Home = () => {
 
-    const {state,loading,error,searchTerm,setSearchTerm} = useMovieFetch();
+    const{ 
+        state,
+        loading,
+        error,
+        searchTerm,
+        setSearchTerm,
+        setIsLoadingMore} = useMovieFetch();
+    
+    if(error) {
+        return(
+            <div>
+                Something went wrong...
+            </div>
+        )
+    }
 
     return (
         <Fragment>
@@ -45,7 +60,14 @@ const Home = () => {
                     />
                 ))}
             </Grid>
-            <Spinner />
+            {loading && <Spinner />}
+
+            {state.page < state.total_pages && !loading && (
+                <Button 
+                    text="Load More"
+                    callback={()=>setIsLoadingMore(true)}
+                />    
+            )}
         </Fragment>
     )
 }
